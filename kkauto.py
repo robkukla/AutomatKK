@@ -73,6 +73,7 @@ class Main:
                             level=logging.DEBUG,
                             format='%(levelname)s %(asctime)s %(message)s',
                             datefmt='%m/%d/%Y %H:%M:%S')
+        logging.getLogger().addHandler(logging.StreamHandler(sys.stdout))
         logging.info('----------------------------------------------------------------------NOWY_'
                      'TEST----------------------------------------------------------------------')
 

@@ -15,8 +15,8 @@ def zmiana_drzewa(self, nazwa, text):
     logging.info('')
     self.app[kkvat].TreeView.GetItem(nazwa).ClickInput()
     logging.info(text + ' - Akcja - Dodanie nowego Pola')
-    self.app[kkvat].TypeKeys('{ENTER}')
-    self.app[kkvat].TypeKeys('{INSERT}')
+    self.app[kkvat].type_keys('{ENTER}')
+    self.app[kkvat].type_keys('{INSERT}')
 
 
 def zmiana_zakładki(self, nazwa, text):
@@ -30,8 +30,8 @@ def dialog_wprowadzanie_danych(self, dict_edit, list_edit, text, i=0, j=1):
     for key, value in dict_edit.items():
         logging.info(text + ' - Edit - ' + key)
         if self.app.Dialog[list_edit[i]].Texts()[0] != '':
-            self.app.Dialog['Edit' + str(j+1)].TypeKeys('^a{BACKSPACE}')
-        self.app.Dialog['Edit' + str(j)].TypeKeys(value, with_spaces=True)
+            self.app.Dialog['Edit' + str(j+1)].type_keys('^a{BACKSPACE}')
+        self.app.Dialog['Edit' + str(j)].type_keys(value, with_spaces=True)
         i += 1
         j += 1
 
@@ -68,24 +68,24 @@ def pozycja2(self):
 def zapis(self):
     logging.info('SPRAWA - F7 - wyjście z zapisem')
     time.sleep(3)
-    self.app[kkvat].TypeKeys('{F7}')
+    self.app[kkvat].type_keys('{F7}')
 
 
 def resetowanie(self):
     time.sleep(3)
-    self.app[kkvat].TypeKeys('{ESC}')
+    self.app[kkvat].type_keys('{ESC}')
 
 
 def wybor_certyfikatow(self):
     forma = Application().connect(title_re=".*certyfikatu.*")
     forma.Window_(title='Wybór certyfikatu KWALIFIKOWANEGO (podpis elektroniczny)').Button5.Click()
-    forma.Window_(title='Wybór certyfikatu KWALIFIKOWANEGO (podpis elektroniczny)').TypeKeys('{ENTER}')
-    forma.Window_(title='Podaj PIN do certyfikatu KWALIFIKOWANEGO (podpis elektroniczny)').Edit2.TypeKeys('1111')
+    forma.Window_(title='Wybór certyfikatu KWALIFIKOWANEGO (podpis elektroniczny)').type_keys('{ENTER}')
+    forma.Window_(title='Podaj PIN do certyfikatu KWALIFIKOWANEGO (podpis elektroniczny)').Edit2.type_keys('1111')
     forma.Window_(title='Podaj PIN do certyfikatu KWALIFIKOWANEGO (podpis elektroniczny)').OK.Click()
     sleep(8)
     forma.Window_(title='').Button4.Click()
     sleep(2)
-    forma.Window_(title='Wybór certyfikatu NIEKWALIFIKOWANEGO (logowanie)').TypeKeys('{ENTER}')
+    forma.Window_(title='Wybór certyfikatu NIEKWALIFIKOWANEGO (logowanie)').type_keys('{ENTER}')
     forma.Window_(title='Kancelaria Komornika - VAT').OK.Click()
     sleep(4)
     self.app.Dialog.Nie.Click()
@@ -94,12 +94,12 @@ def wybor_certyfikatow(self):
 def wybor_certyfikatow2(self):
     forma = Application().connect(title_re=".*certyfikatu.*")
     forma.Window_(title='Wybór certyfikatu KWALIFIKOWANEGO (podpis elektroniczny)').Button5.Click()
-    #forma.Window_(title='Wybór certyfikatu KWALIFIKOWANEGO (podpis elektroniczny)').TypeKeys('{DOWN 2}')
-    forma.Window_(title='Wybór certyfikatu KWALIFIKOWANEGO (podpis elektroniczny)').TypeKeys('{ENTER}')
-    forma.Window_(title='Podaj PIN do certyfikatu KWALIFIKOWANEGO (podpis elektroniczny)').Edit2.TypeKeys('1111')
+    #forma.Window_(title='Wybór certyfikatu KWALIFIKOWANEGO (podpis elektroniczny)').type_keys('{DOWN 2}')
+    forma.Window_(title='Wybór certyfikatu KWALIFIKOWANEGO (podpis elektroniczny)').type_keys('{ENTER}')
+    forma.Window_(title='Podaj PIN do certyfikatu KWALIFIKOWANEGO (podpis elektroniczny)').Edit2.type_keys('1111')
     forma.Window_(title='Podaj PIN do certyfikatu KWALIFIKOWANEGO (podpis elektroniczny)').OK.Click()
     sleep(8)
-    forma.Window_(title='Wybór certyfikatu NIEKWALIFIKOWANEGO (logowanie)').TypeKeys('{ENTER}')
+    forma.Window_(title='Wybór certyfikatu NIEKWALIFIKOWANEGO (logowanie)').type_keys('{ENTER}')
     forma.Window_(title='Kancelaria Komornika - VAT').OK.Click()
     sleep(4)
     self.app.Dialog.Nie.Click()
@@ -107,6 +107,6 @@ def wybor_certyfikatow2(self):
 
 """def proste_rozksiegowanie(self):
     self.app[kkvat].ListView.DoubleClick()
-    self.app[kkvat].TypeKeys('{F7}')
+    self.app[kkvat].type_keys('{F7}')
     sleep(2)
     self.app.dialog.Zapisz.Click()"""

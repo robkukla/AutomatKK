@@ -80,11 +80,11 @@ def sprawa(self):
     sleep(1.5)
     self.app[kkvat].TreeView.GetItem([u'Tytuły Wykonawcze']).Click()
     logging.info('TYTUŁY WYKONAWCZE - Akcja - Dodanie nowego tytułu wykonawczego')
-    self.app[kkvat].TypeKeys('{ENTER}')
+    self.app[kkvat].type_keys('{ENTER}')
 
-    self.app[kkvat].TypeKeys('{INSERT}')
+    self.app[kkvat].type_keys('{INSERT}')
     self.app.Dialog.Combobox.Select(u'Postanowienie')
-    #self.app.Dialog.Edit2.TypeKeys('Kp1')
+    #self.app.Dialog.Edit2.type_keys('Kp1')
     self.app.Dialog.Zapisz.Click()
 
     logging.info('TYTUŁY WYKONAWCZE - ASERCJA')
@@ -123,7 +123,7 @@ def sprawa(self):
     zmiana_drzewa(self, '\\Wierzyciele\\Rachunki bankowe', 'RACHUNKI BANKOWE')
     self.app.Dialog.Wait('ready')
     logging.info('RACHUNKI BANKOWE - Edit - Rachunek')
-    self.app.Dialog.Edit1.TypeKeys('70200001')
+    self.app.Dialog.Edit1.type_keys('70200001')
     self.app.Dialog.Button1.Click()
     logging.info('RACHUNKI BANKOWE - Button - 1 (Automatyczne wypełnianie danych)')
     logging.info('RACHUNKI BANKOWE - Button - OK')
@@ -157,7 +157,7 @@ def sprawa(self):
     logging.info('ROSZCZENIE - wprowadzenie nowego roszczenia')
     self.app.Dialog.Wait('ready')
     logging.info('ROSZCZENIE - Edit - Kwota')
-    self.app.Dialog.Edit1.TypeKeys('10000')
+    self.app.Dialog.Edit1.type_keys('10000')
     logging.info('ROSZCZENIE - Button - Zapisz')
     self.app.Dialog.Zapisz.Click()
     zapis(self)
@@ -176,14 +176,14 @@ def sprawa(self):
 
         # *** Tworzenie sprawy ***
         self.app.Dialog.Wait('ready')
-        self.app.Dialog.Edit.TypeKeys('100/18')
+        self.app.Dialog.Edit.type_keys('100/18')
         self.app.Dialog.Zapisz.Click()
 
     sleep(1.5)
     self.app[kkvat].TreeView.GetItem([u'Tytuły Wykonawcze']).Click()
-    self.app[kkvat].TypeKeys('{ENTER}')
+    self.app[kkvat].type_keys('{ENTER}')
 
-    self.app[kkvat].TypeKeys('{INSERT}')
+    self.app[kkvat].type_keys('{INSERT}')
     self.app.Dialog.Combobox.Select(u'Postanowienie')
     self.app.Dialog.Zapisz.Click()
 
@@ -223,7 +223,7 @@ def sprawa(self):
     zmiana_drzewa(self, '\\Wierzyciele\\Rachunki bankowe', 'RACHUNKI BANKOWE')
     self.app.Dialog.Wait('ready')
     logging.info('RACHUNKI BANKOWE - Edit - Rachunek')
-    self.app.Dialog.Edit1.TypeKeys('70200001')
+    self.app.Dialog.Edit1.type_keys('70200001')
     self.app.Dialog.Button1.Click()
     logging.info('RACHUNKI BANKOWE - Button - 1 (Automatyczne wypełnianie danych)')
     logging.info('RACHUNKI BANKOWE - Button - OK')
@@ -248,7 +248,7 @@ def sprawa(self):
     zmiana_drzewa(self, '\\Stan sprawy\\Roszczenie', 'ROSZCZENIE')
 
     self.app.Dialog.Wait('ready')
-    self.app.Dialog.Edit1.TypeKeys('100000')
+    self.app.Dialog.Edit1.type_keys('100000')
     self.app.Dialog.Button.Click()
     zapis(self)
 
@@ -266,14 +266,14 @@ def sprawa(self):
 
         # *** Tworzenie sprawy ***
         self.app.Dialog.Wait('ready')
-        self.app.Dialog.Edit.TypeKeys('101/18')
+        self.app.Dialog.Edit.type_keys('101/18')
         self.app.Dialog.Zapisz.Click()
 
     sleep(1.5)
     self.app[kkvat].TreeView.GetItem([u'Tytuły Wykonawcze']).Click()
-    self.app[kkvat].TypeKeys('{ENTER}')
+    self.app[kkvat].type_keys('{ENTER}')
 
-    self.app[kkvat].TypeKeys('{INSERT}')
+    self.app[kkvat].type_keys('{INSERT}')
     self.app.Dialog.Combobox.Select(u'Postanowienie')
     self.app.Dialog.Zapisz.Click()
 
@@ -313,7 +313,7 @@ def sprawa(self):
     zmiana_drzewa(self, '\\Wierzyciele\\Rachunki bankowe', 'RACHUNKI BANKOWE')
     self.app.Dialog.Wait('ready')
     logging.info('RACHUNKI BANKOWE - Edit - Rachunek')
-    self.app.Dialog.Edit1.TypeKeys('70200001')
+    self.app.Dialog.Edit1.type_keys('70200001')
     self.app.Dialog.Button1.Click()
     logging.info('RACHUNKI BANKOWE - Button - 1 (Automatyczne wypełnianie danych)')
     logging.info('RACHUNKI BANKOWE - Button - OK')
@@ -338,9 +338,9 @@ def sprawa(self):
     zmiana_drzewa(self, '\\Stan sprawy\\Roszczenie', 'ROSZCZENIE')
 
     self.app.Dialog.Wait('ready')
-    self.app.Dialog.Edit1.TypeKeys('5000000')
+    self.app.Dialog.Edit1.type_keys('5000000')
     self.app.Dialog.Zapisz.Click()
-    #self.app[kkvat].TypeKeys('F7')
+    #self.app[kkvat].type_keys('F7')
     zapis(self)
 
     ###kolejna
@@ -357,14 +357,14 @@ def sprawa(self):
 
         # *** Tworzenie sprawy ***
         self.app.Dialog.Wait('ready')
-        self.app.Dialog.Edit.TypeKeys('102/18')
+        self.app.Dialog.Edit.type_keys('102/18')
         self.app.Dialog.Zapisz.Click()
 
     sleep(1.5)
     self.app[kkvat].TreeView.GetItem([u'Tytuły Wykonawcze']).Click()
-    self.app[kkvat].TypeKeys('{ENTER}')
+    self.app[kkvat].type_keys('{ENTER}')
 
-    self.app[kkvat].TypeKeys('{INSERT}')
+    self.app[kkvat].type_keys('{INSERT}')
     self.app.Dialog.Combobox.Select(u'Postanowienie')
     self.app.Dialog.Zapisz.Click()
 
@@ -404,7 +404,7 @@ def sprawa(self):
     zmiana_drzewa(self, '\\Wierzyciele\\Rachunki bankowe', 'RACHUNKI BANKOWE')
     self.app.Dialog.Wait('ready')
     logging.info('RACHUNKI BANKOWE - Edit - Rachunek')
-    self.app.Dialog.Edit1.TypeKeys('70200001')
+    self.app.Dialog.Edit1.type_keys('70200001')
     self.app.Dialog.Button1.Click()
     logging.info('RACHUNKI BANKOWE - Button - 1 (Automatyczne wypełnianie danych)')
     logging.info('RACHUNKI BANKOWE - Button - OK')
@@ -429,9 +429,9 @@ def sprawa(self):
     zmiana_drzewa(self, '\\Stan sprawy\\Roszczenie', 'ROSZCZENIE')
 
     self.app.Dialog.Wait('ready')
-    self.app.Dialog.Edit1.TypeKeys('768000654')
+    self.app.Dialog.Edit1.type_keys('768000654')
     self.app.Dialog.Zapisz.Click()
-    #self.app[kkvat].TypeKeys('F7')
+    #self.app[kkvat].type_keys('F7')
     zapis(self)
 
     ###kolejna
@@ -448,14 +448,14 @@ def sprawa(self):
 
         # *** Tworzenie sprawy ***
         self.app.Dialog.Wait('ready')
-        self.app.Dialog.Edit.TypeKeys('103/18')
+        self.app.Dialog.Edit.type_keys('103/18')
         self.app.Dialog.Zapisz.Click()
 
     sleep(1.5)
     self.app[kkvat].TreeView.GetItem([u'Tytuły Wykonawcze']).Click()
-    self.app[kkvat].TypeKeys('{ENTER}')
+    self.app[kkvat].type_keys('{ENTER}')
 
-    self.app[kkvat].TypeKeys('{INSERT}')
+    self.app[kkvat].type_keys('{INSERT}')
     self.app.Dialog.Combobox.Select(u'Postanowienie')
     self.app.Dialog.Zapisz.Click()
 
@@ -495,7 +495,7 @@ def sprawa(self):
     zmiana_drzewa(self, '\\Wierzyciele\\Rachunki bankowe', 'RACHUNKI BANKOWE')
     self.app.Dialog.Wait('ready')
     logging.info('RACHUNKI BANKOWE - Edit - Rachunek')
-    self.app.Dialog.Edit1.TypeKeys('70200001')
+    self.app.Dialog.Edit1.type_keys('70200001')
     self.app.Dialog.Button1.Click()
     logging.info('RACHUNKI BANKOWE - Button - 1 (Automatyczne wypełnianie danych)')
     logging.info('RACHUNKI BANKOWE - Button - OK')
@@ -520,9 +520,9 @@ def sprawa(self):
     zmiana_drzewa(self, '\\Stan sprawy\\Roszczenie', 'ROSZCZENIE')
 
     self.app.Dialog.Wait('ready')
-    self.app.Dialog.Edit1.TypeKeys('3500000')
+    self.app.Dialog.Edit1.type_keys('3500000')
     self.app.Dialog.Zapisz.Click()
-    #self.app[kkvat].TypeKeys('F7')
+    #self.app[kkvat].type_keys('F7')
     zapis(self)
 
     ###kolejna
@@ -539,14 +539,14 @@ def sprawa(self):
 
         # *** Tworzenie sprawy ***
         self.app.Dialog.Wait('ready')
-        self.app.Dialog.Edit.TypeKeys('104/18')
+        self.app.Dialog.Edit.type_keys('104/18')
         self.app.Dialog.Zapisz.Click()
 
     sleep(1.5)
     self.app[kkvat].TreeView.GetItem([u'Tytuły Wykonawcze']).Click()
-    self.app[kkvat].TypeKeys('{ENTER}')
+    self.app[kkvat].type_keys('{ENTER}')
 
-    self.app[kkvat].TypeKeys('{INSERT}')
+    self.app[kkvat].type_keys('{INSERT}')
     self.app.Dialog.Combobox.Select(u'Postanowienie')
     self.app.Dialog.Zapisz.Click()
 
@@ -586,7 +586,7 @@ def sprawa(self):
     zmiana_drzewa(self, '\\Wierzyciele\\Rachunki bankowe', 'RACHUNKI BANKOWE')
     self.app.Dialog.Wait('ready')
     logging.info('RACHUNKI BANKOWE - Edit - Rachunek')
-    self.app.Dialog.Edit1.TypeKeys('70200001')
+    self.app.Dialog.Edit1.type_keys('70200001')
     self.app.Dialog.Button1.Click()
     logging.info('RACHUNKI BANKOWE - Button - 1 (Automatyczne wypełnianie danych)')
     logging.info('RACHUNKI BANKOWE - Button - OK')
@@ -611,7 +611,7 @@ def sprawa(self):
     zmiana_drzewa(self, '\\Stan sprawy\\Roszczenie', 'ROSZCZENIE')
 
     self.app.Dialog.Wait('ready')
-    self.app.Dialog.Edit1.TypeKeys('325674000')
+    self.app.Dialog.Edit1.type_keys('325674000')
     self.app.Dialog.Zapisz.Click()
-    #self.app[kkvat].TypeKeys('F7')
+    #self.app[kkvat].type_keys('F7')
     zapis(self)

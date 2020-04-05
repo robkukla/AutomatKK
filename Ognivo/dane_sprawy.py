@@ -122,9 +122,9 @@ def dane_do_sprawy(self):
     sleep(1.5)
     self.app[kkvat].TreeView.GetItem([u'Tytuły Wykonawcze']).Click()
     logging.info('TYTUŁY WYKONAWCZE - Akcja - Dodanie nowego tytułu wykonawczego')
-    self.app[kkvat].TypeKeys('{ENTER}')
+    self.app[kkvat].type_keys('{ENTER}')
 
-    self.app[kkvat].TypeKeys('{INSERT}')
+    self.app[kkvat].type_keys('{INSERT}')
     self.app.Dialog.Combobox.Select(u'Postanowienie')
     self.app.Dialog.Zapisz.Click()
 
@@ -151,10 +151,10 @@ def dane_do_sprawy(self):
     zmiana_zakładki(self, 1, 'WIERZYCIELE - DANE KONTA BANKOWEGO')
 
     logging.info('WIERZYCIELE - DANE KONTA BANKOWEGO - Akcja - Dodanie nowego nr. konta bankowego')
-    self.app.Dialog.TypeKeys('{DOWN}')
-    self.app.Dialog.TypeKeys('{INSERT}')
+    self.app.Dialog.type_keys('{DOWN}')
+    self.app.Dialog.type_keys('{INSERT}')
     logging.info('WIERZYCIELE - DANE KONTA BANKOWEGO - Edit - Rachunek')
-    self.app.Dialog.Edit.TypeKeys("10902688")  # Nazwa1
+    self.app.Dialog.Edit.type_keys("10902688")  # Nazwa1
     logging.info('WIERZYCIELE - DANE KONTA BANKOWEGO - Button - 1 (Automatyczne wypełnianie danych)')
     self.app.Dialog.Button1.Click()
     self.app.Dialog.Button1.Click()
@@ -210,7 +210,7 @@ def dane_do_sprawy(self):
     zmiana_drzewa(self, '\\Dłużnicy\\Rachunki bankowe', 'RACHUNKI BANKOWE')
     self.app.Dialog.Wait('ready')
     logging.info('RACHUNKI BANKOWE - Edit - Rachunek')
-    self.app.Dialog.Edit1.TypeKeys('70200001')
+    self.app.Dialog.Edit1.type_keys('70200001')
     self.app.Dialog.Button1.Click()
     logging.info('RACHUNKI BANKOWE - Button - 1 (Automatyczne wypełnianie danych)')
     logging.info('RACHUNKI BANKOWE - Button - OK')
@@ -224,7 +224,7 @@ def dane_do_sprawy(self):
     logging.info('ROSZCZENIE - wprowadzenie nowego roszczenia')
     self.app.Dialog.Wait('ready')
     logging.info('ROSZCZENIE - Edit - Kwota')
-    self.app.Dialog.Edit1.TypeKeys('10000')
+    self.app.Dialog.Edit1.type_keys('10000')
     logging.info('ROSZCZENIE - Button - Zapisz')
     self.app.Dialog.Zapisz.Click()
 

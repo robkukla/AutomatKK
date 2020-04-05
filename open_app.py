@@ -27,25 +27,26 @@ def startapp(self):
     # *** Jeśli jest włączona - podłącz się do niej ***
     if isrunning(self.kkvat):
         logging.info('URUCHAMIANIE -Próba podłączenia do uruchomionej aplikacji...')
-        self.app = Application().Connect(title_re=u'Kancelaria Komornika - VAT')
+        self.app = Application().connect(title_re=u'Kancelaria Komornika - VAT')
         logging.info('URUCHAMIANIE - ...podłączono')
 
     # *** Jeśli nie jest włączona - włącz ją i się zaloguj ***
     else:
         logging.info('URUCHAMIANIE - Uruchamianie Kancelarii komornika')
-        self.app = Application().Start(cmd_line=u'"C:\\Program Files (x86)\\Kancelaria Komornika\\komornik.exe" ')
-        sleep(3)
+        self.app = Application().start(cmd_line=u'"C:\\Program Files (x86)\\Kancelaria Komornika\\komornik.exe" ')
+        logging.info("Czekam 70 sek. na zaladowanie aplikacji")
+        sleep(70)
         # DANE DO LOGOWANIA!!!!!!!!!!!!!!!!!!!!!
         logging.info('URUCHAMIANIE - LOGOWANIE - Edit - Login')
-        self.app.Dialog.Edit.TypeKeys('a')
+        self.app.Dialog.Edit.type_keys('r')
         logging.info('URUCHAMIANIE - LOGOWANIE - Edit - Hasło')
-        self.app.Dialog.Edit2.TypeKeys('a')
+        self.app.Dialog.Edit2.type_keys('x')
         logging.info('URUCHAMIANIE - LOGOWANIE - Button - Zaloguj')
         self.app.Dialog.Zaloguj.Click()
 
     # *** Przypadek minimalizującego się okna! ***
     logging.info('URUCHAMIANIE - Maksymalizowanie okna (zapobiegawczo)')
-    self.app[kkvat].Maximize()
+    self.app[kkvat].maximize()
 
     # *** Wejscie do danego pola menu glownego ***
     logging.info('OKNO GŁÓWNE - Akcja - Wybor pola z menu glownego wg. zmiennych menu_button, submenu_1')

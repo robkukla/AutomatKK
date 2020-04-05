@@ -69,10 +69,10 @@ def peln_wierzyciela(self):
     zmiana_zakładki(self, 1, 'PEŁNOMOCNICY WIERZYCIELA - DANE KONTA BANKOWEGO')
 
     # *** 2 Zakładka " Dane Kont bank." ***
-    self.app.Dialog.TypeKeys('{DOWN}')
-    self.app.Dialog.TypeKeys('{INSERT}')
+    self.app.Dialog.type_keys('{DOWN}')
+    self.app.Dialog.type_keys('{INSERT}')
     logging.info('PEŁNOMOCNICY WIERZYCIELA - DANE KONTA BANKOWEGO - Edit - Rachunek')
-    self.app.Dialog.Edit.TypeKeys("10902688")
+    self.app.Dialog.Edit.type_keys("10902688")
     logging.info('PEŁNOMOCNICY WIERZYCIELA - DANE KONTA BANKOWEGO - Button - 1 (Automatyczne wypełnianie danych)')
     self.app.Dialog.Button1.Click()
     self.app.Dialog.Button1.Click()
@@ -97,7 +97,7 @@ def peln_wierzyciela(self):
 
     logging.info('PEŁNOMOCNICY WIERZYCIELA - ASERCJA - Zakładka "Dane podstawowe"')
     self.app[kkvat].ListView3.Items()[0].ClickInput()
-    self.app[kkvat].TypeKeys('{ENTER}')
+    self.app[kkvat].type_keys('{ENTER}')
 
     dialog_asercja_danych(self, dane1_edit, dane1_asercja, 'PEŁNOMOCNICY WIERZYCIELA - DANE PODSTAWOWE')
     zmiana_zakładki(self, 2, 'PEŁNOMOCNICY WIERZYCIELA - DANE UZUPEŁNIAJĄCE')

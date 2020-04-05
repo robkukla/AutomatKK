@@ -37,4 +37,4 @@ def skorowidz_nieruchomosci_filtrowanie(self):
     numery_spraw_filtr(self, 'Numery spraw:Edit', numer_kolumny=9)
 
     time.sleep(3)
-    self.app[kkvat].TypeKeys('{ESC}')
+    self.app[kkvat].type_keys('{ESC}')

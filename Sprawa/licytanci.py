@@ -65,10 +65,10 @@ def licytanci(self):
     zmiana_zakładki(self, 1, 'LICYTANCI - DANE KONTA BANKOWEGO')
 
     # *** 2 Zakładka " Dane Kont bank." ***
-    self.app.Dialog.TypeKeys('{DOWN}')
-    self.app.Dialog.TypeKeys('{INSERT}')
+    self.app.Dialog.type_keys('{DOWN}')
+    self.app.Dialog.type_keys('{INSERT}')
     logging.info('LICYTANCI - DANE KONTA BANKOWEGO - Edit - Rachunek')
-    self.app.Dialog.Edit.TypeKeys("10902688")  # Nazwa1
+    self.app.Dialog.Edit.type_keys("10902688")  # Nazwa1
     logging.info('LICYTANCI - DANE KONTA BANKOWEGO - Button - 1 (Automatyczne wypelnianie danych)')
     self.app.Dialog.Button1.Click()
     self.app.Dialog.Button1.Click()
@@ -86,7 +86,7 @@ def licytanci(self):
 
     logging.info('LICYTANCI - ASERCJA - Zakładka "Dane podstawowe"')
     self.app[kkvat].ListView2.Items()[0].ClickInput()
-    self.app[kkvat].TypeKeys('{ENTER}')
+    self.app[kkvat].type_keys('{ENTER}')
 
     dialog_asercja_danych(self, dane1_edit, dane1_asercja, 'LICYTANCI - ASERCJA - DANE PODSTAWOWE')
     zmiana_zakładki(self, 2, 'LICYTANCI - DANE UZUPEŁNIAJĄCE')

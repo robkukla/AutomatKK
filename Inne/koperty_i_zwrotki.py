@@ -40,4 +40,4 @@ def koperty_i_zwrotki_filtrowanie(self):
     data_filtr(self, count=12)
 
     time.sleep(3)
-    self.app[kkvat].TypeKeys('{ESC}')
+    self.app[kkvat].type_keys('{ESC}')
