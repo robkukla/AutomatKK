@@ -1,0 +1,17 @@
+﻿------------------INSTRUKCJA OBSŁUGI DO "MOJE UPOŚLEDZONE DZIECKO V1.0"-------------------------
+
+
+1. Nalezy zainstalowac pythona 3.x, nie wiem czy na nowszych wersjach się nic nie wywali (nie powinno), aczkolwiek jak coś to na wersji '3.6.0 (v3.6.0:41df79263a11, Dec 23 2016, 07:18:10)' działa
+2.Framework - pywinauto - Wpisac w cmd "pip install pywinauto"
+
+3. Większość funkcji, modułów jest opisana, wykomentowana, wiec raczej nie powinno być większych problemów z odnalezieniem się. wszystko odpala się z pliku kkauto.py przez cmd "python kkauto.py" lub przez edytor. (edytor lub cmd musi zostac wlaczony jako administrator!!)
+4. Wszystko u mnie działa, ale bardzo możliwe że niektóre rzeczy się wysypią na innym komputerze ¯\_(ツ)_/¯
+5. Rzeczy z zakładki Sprawa można zaznaczać masowo, jednak skorowidz, inne i historia muszą byc odpalane pojedynczo, bo był problem kiedyś z odswiezaniem widoku w przechodzeniu pomiędzy oknami w skorowidzu, a zapomnialem to poprawić
+6. Jeśli byście chcieli kiedyś coś dopisywac, to wystarczy podtsawowa dokumentacja pythona i pywinauto.
+7. Tworza się logi do pliku logi.log w glownym folderze
+8. Trzeba skonfigurowac sciezke do aplikacji w pliku open_app.py, domyslnie jest na self.app = Application().Start(cmd_line=u'"C:\\Program Files (x86)\\Kancelaria Komornika\\komornik.exe" ')
+9. Automat mozna uruchamiac niezaleznie czy kkvat jest wlaczone czy nie, jednak w przypadku gdy nie jest wlaczone, to domyslnie jest ustawione automatyczne logowanie na dane a/a (nie mozna w administratorze ustalic danych, bo sie wyjebie)
+10 Podcas filtrowania, gdzie wyswietla sie duuzo wyników, automat musi wszystko wyłapać, wiec ogolnie momentami zajmuje to naprawde duzo czasu i raczej nie da sie tego ominąć, chyba ze checie wymusic klikniecia myszki na danym miejscu, czego nie polecam. Najlepiej zrobić jakąś małą bazę i dostosowac do niej wartości wyszukiwane w pliku "filtrowanie.py"
+11. Dużo rzeczy jest napoczętych w taki sposób, że można łatwo przekopiować cały kod, zmienic nazwy kontrolek, podpiac pod gui i powinno śmigać
+12. Do rozpoznawania kontrolek można użyc aplikacji swapy, jednak w wielu miejscach się gubi z jakiegoś powodu, a okien dialogowych itp nawet nie wykrywa. Wtedy w danym momencie w kodzie trzeba wpisać self.app.Dialog.print_control_identifiers() - dla dialogu lub self.app[kkvat].print_control_identifiers() - dla aktywnego okna, i w konsoli pokaze kontrolki w miare sensowny sposób.
+12. Za jakiekolwiek problemy związane z obsługą tego - przepraszam :D

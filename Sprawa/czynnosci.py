@@ -1,0 +1,51 @@
+from uniwersalne_funkcje import *
+
+kkvat = 'Afx:00400000:8:00010003:00000000:039016A5'
+
+
+def czynnosci(self):
+    self.app[kkvat].TreeView.GetItem([u'Czynności']).ClickInput()
+    self.app[kkvat].TypeKeys('{ENTER}')
+    self.app[kkvat].TypeKeys('{TAB}')
+    self.app[kkvat].TypeKeys('{ENTER}')
+    self.app.Dialog.OK.Click()
+
+    self.app.Dialog.Button4.Click()
+    self.app.Dialog.TreeView.DoubleClick()
+    self.app.Dialog.TypeKeys('{DOWN}')
+    self.app.Dialog.Button4.Click()
+    sleep(1)
+    self.app.Dialog.Button4.Click()
+    sleep(1)
+    self.app.Dialog.Button6.Click()
+    self.app.Dialog.Button4.Click()
+    self.app.Dialog.Button.Click()
+    self.app.Dialog.Button.Click()
+    self.app[kkvat].TypeKeys('{F7}')
+    sleep(4)
+    self.app[kkvat].TypeKeys('{F7}')
+    sleep(4)
+
+    self.app[kkvat].TypeKeys('{INSERT}')
+    self.app.Dialog.OK.Click()
+    self.app.Dialog.Button4.Click()
+    self.app.Dialog.TreeView.DoubleClick()
+    self.app.Dialog.TypeKeys('{DOWN 2}')
+    self.app.Dialog.Button4.Click()
+    sleep(1)
+    self.app.Dialog.Button4.Click()
+    sleep(1)
+    self.app.Dialog.Button6.Click()
+    self.app.Dialog.Button5.Click()
+    self.app.Dialog.Button.Click()
+    self.app.Dialog.TreeView.GetItem([u'Opłaty Stałe', u'Art.49a.1 - Opłata tymczasowa (wszczęcie egz. świadczeń niepieniężnych oraz wykonanie postanowienia o udzieleniu zabezp. roszczenia niepieniężnego)']).Click()
+    self.app.Dialog.Button.Click()
+    self.app.Dialog.Zapisz.Click()
+    self.app.Dialog.Button.Click()
+    self.app.Dialog.Button.Click()
+
+    self.app[kkvat].TypeKeys('{F7}')
+    sleep(4)
+    self.app[kkvat].TypeKeys('{F7}')
+    sleep(4)
+    zapis(self)
