@@ -34,8 +34,8 @@ def startapp(self):
     else:
         logging.info('URUCHAMIANIE - Uruchamianie Kancelarii komornika')
         self.app = Application().start(cmd_line=u'"C:\\Program Files (x86)\\Kancelaria Komornika\\komornik.exe" ')
-        logging.info("Czekam 70 sek. na zaladowanie aplikacji")
-        sleep(70)
+        logging.info("Czekam 30 sek. na zaladowanie aplikacji")
+        sleep(30)
         # DANE DO LOGOWANIA!!!!!!!!!!!!!!!!!!!!!
         logging.info('URUCHAMIANIE - LOGOWANIE - Edit - Login')
         self.app.Dialog.Edit.type_keys('r')
@@ -47,6 +47,9 @@ def startapp(self):
     # *** Przypadek minimalizującego się okna! ***
     logging.info('URUCHAMIANIE - Maksymalizowanie okna (zapobiegawczo)')
     self.app[kkvat].maximize()
+
+    logging.info("odpoczywam 3 s.")
+    sleep(3)
 
     # *** Wejscie do danego pola menu glownego ***
     logging.info('OKNO GŁÓWNE - Akcja - Wybor pola z menu glownego wg. zmiennych menu_button, submenu_1')
@@ -60,7 +63,7 @@ def startapp(self):
         list_pos_y = int(GetSystemMetrics(1) * 2 / 3)
         pywinauto.mouse.right_click(coords=(list_pos_x, list_pos_y))
 
-        # dodawanie sprawy
+        # dodawanie sprawy lub otwarcie istniejącej
         if self.menu_list == 'dodaj sprawę':
             # *** Wybrannie danego pola z listy rozwijanej ***
             lista_rozwijana(self, self.menu_list)
@@ -68,4 +71,20 @@ def startapp(self):
             # *** Tworzenie sprawy ***
             self.app.Dialog.Wait('ready')
             self.app.Dialog.Zapisz.Click()
+        elif "znajdz sprawę" in self.menu_list:
+            logging.info("OKNO GłÓWNE - Akcja - " + self.menu_list)
+            pos = self.menu_list.find(":")
+            if pos > 0:
+                nr_sprawy = self.menu_list[pos + 1:]
+                sleep(3)
+                nr_sprawy_edit = self.app[kkvat].child_window(class_name="MDIClient")\
+                    .child_window(title="Repertorium spraw", class_name="AfxFrameOrView140").\
+                    child_window(title="Tab1", class_name="SysTabControl32").Edit1
+                nr_sprawy_edit.draw_outline()
+                nr_sprawy_edit.set_text(nr_sprawy)
+                nr_sprawy_edit.type_keys('{ENTER}')
 
+                self.app[kkvat].child_window(class_name="MDIClient").child_window(title="Repertorium spraw",
+                                                                                  class_name="AfxFrameOrView140")\
+                    .child_window(class_name="SysListView32", title="", found_index=0)\
+                    .double_click()

@@ -44,6 +44,7 @@ from Historia.historia_zmian_danych_osobowych import *
 
 from Inne.koperty_i_zwrotki import *
 from Inne.generowanie_kopert_w_sprawie import *
+from ZUS.nowa_sybskrypcja import *
 
 
 class Main:
@@ -130,9 +131,12 @@ class Main:
         koszty_egzekucji_var = IntVar()
         spl_kosztow_egz_var = IntVar()
         czynnosci_var = IntVar()
+        zus_nowa_sub_var = IntVar(value=TRUE)
 
         # *** Lista tworząca checkboxy do zakładki "Sprawa" ***
         self.checkboxy_sprawa = [
+            MyCheckBox('ZUS', funkcja=nowa_sub, menu_button='Repertorium',
+                       submenu_1='KMP', submenu_2=False, menu_list="znajdz sprawę:1/20", var=zus_nowa_sub_var),
             MyCheckBox('Tytuly wykonawcze', funkcja=tytuly_wykonawcze, menu_button='Repertorium',
                        submenu_1='KM', submenu_2=False, menu_list='dodaj sprawę', var=tytuly_wykonawcze_var),
             MyCheckBox('Wierzyciele', funkcja=wierzyciel_dane, menu_button='Repertorium',
