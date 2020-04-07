@@ -44,7 +44,8 @@ from Historia.historia_zmian_danych_osobowych import *
 
 from Inne.koperty_i_zwrotki import *
 from Inne.generowanie_kopert_w_sprawie import *
-from ZUS.nowa_sybskrypcja import *
+from ZUS.nowa_subskrypcja import *
+from ZUS.wysylka_zapytan import *
 
 
 class Main:
@@ -91,9 +92,11 @@ class Main:
         self.skorowidz = ttk.Frame(tabframe)
         self.inne = ttk.Frame(tabframe)
         self.historia = ttk.Frame(tabframe)
+        self.zus = ttk.Frame(tabframe)
 
         # *** Przypisywanie nazw zakładkom ***
         tabframe.add(self.sprawa, text="Sprawa")
+        tabframe.add(self.zus, text="ZUS")
         tabframe.add(self.ognivo, text="Ognivo")
         tabframe.add(self.ksiegowosc, text="Księgowość")
         tabframe.add(self.skorowidz, text="Skorowidz")
@@ -132,11 +135,10 @@ class Main:
         spl_kosztow_egz_var = IntVar()
         czynnosci_var = IntVar()
         zus_nowa_sub_var = IntVar(value=TRUE)
+        zus_nowa_wysylka_var = IntVar(value=TRUE)
 
         # *** Lista tworząca checkboxy do zakładki "Sprawa" ***
         self.checkboxy_sprawa = [
-            MyCheckBox('ZUS', funkcja=nowa_sub, menu_button='Repertorium',
-                       submenu_1='KMP', submenu_2=False, menu_list="znajdz sprawę:1/20", var=zus_nowa_sub_var),
             MyCheckBox('Tytuly wykonawcze', funkcja=tytuly_wykonawcze, menu_button='Repertorium',
                        submenu_1='KM', submenu_2=False, menu_list='dodaj sprawę', var=tytuly_wykonawcze_var),
             MyCheckBox('Wierzyciele', funkcja=wierzyciel_dane, menu_button='Repertorium',
@@ -182,6 +184,32 @@ class Main:
         b = Button(sprawa_checkboxesframe, text="TESTUJ", command=self.sprawdz)
         b.grid(column=1, row=checkbox_sprawa_counter, sticky=E)
 
+        # ****************************************** ZUS ****************************************
+        zus_checkboxesframe = Frame(self.zus)
+
+        zus_nowa_sub_var = IntVar()
+        zus_nowa_wysylka_var = IntVar(value=TRUE)
+
+        # *** Lista tworząca checkboxy do zakładki "Sprawa" ***
+        self.checkboxy_zus = [
+            MyCheckBox('ZUS - nowa subskrypcja', funkcja=nowa_sub, menu_button='Repertorium',
+                       submenu_1='KMP', submenu_2=False, menu_list='znajdz sprawę:33/19', var=zus_nowa_sub_var),
+            MyCheckBox('ZUS - wysyłka', funkcja=wysylka_zapytan, menu_button='Biurowość',
+                       submenu_1='ZUS-EKS - zapytanie o dłużnika', submenu_2='ZUS-PUE - wysyłka', menu_list='', var=zus_nowa_wysylka_var)
+        ]
+
+        #  *** Pętla przypisująca każdemu checkboxowi text, zmienną oraz pozycje w zakładce "Sprawa" ***
+        checkbox_zus_counter = 1
+        for checkbox in self.checkboxy_zus:
+            cb = Checkbutton(zus_checkboxesframe,
+                             text=checkbox.name,
+                             variable=checkbox.var)
+            cb.grid(column=0, row=checkbox_zus_counter, sticky=W, padx=checkbox.padx)
+            checkbox_zus_counter += 1
+
+        # *** Przycisk odpalający automat w zakładce "Sprawa" - taki sam znajduje się w każdej zakładce ***
+        b = Button(zus_checkboxesframe, text="TESTUJ", command=self.sprawdz)
+        b.grid(column=1, row=checkbox_zus_counter, sticky=E)
 
         # ******************************************** Ognivo *******************************************************
         # *** Tworzenie ramki do zakładki "Ognivo" ***
@@ -377,6 +405,7 @@ class Main:
 
         # *** "Pakowanie" wszystkich zakładek z ich składnikami do głownego okna ***
         sprawa_checkboxesframe.pack()
+        zus_checkboxesframe.pack()
         ognivo_checkboxesframe.pack()
         ksiegowosc_checkboxesframe.pack()
         skorowidz_checkboxesframe.pack()
@@ -387,7 +416,7 @@ class Main:
         """ Funkcja wywoływana poprzez naciśnięcie przycisku "TESTUJ". Sprawdza które chceckboxy sa zaznaczone, po czym 
         po kolei przechodzi do odpowiedniego okna, sprawdza czy aplikacja jest już włączona a ostatecznie odpala dla 
         nich ich funkcje, które zostały przypisane w klasie MyCheckBox"""
-        lista_checkboxów = [self.checkboxy_sprawa, self.checkboxy_ognivo, self.checkboxy_ksiegowosc,
+        lista_checkboxów = [self.checkboxy_sprawa, self.checkboxy_zus, self.checkboxy_ognivo, self.checkboxy_ksiegowosc,
                             self.checkboxy_skorowidz, self.checkboxy_inne, self.checkboxy_historia]
         count = 0
         for i in lista_checkboxów:
