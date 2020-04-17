@@ -23,6 +23,7 @@ def nowa_sub(self):
     debtor_dialog.type_keys('{ENTER}')
     debtor_dialog.type_keys('{ESC}')
     my_app.type_keys('{F7}')
+    my_app.type_keys('{ESC}')
 
 
 
