@@ -15,4 +15,14 @@ def nowa_sub(self):
     my_app.ListView2.set_focus()
     my_app.ListView2.double_click()
     debtor_dialog = self.app.Dialog
-    debtor_dialog.draw_outline()
+    debtor_dialog.child_window(title='ZUS alimenty').draw_outline()
+    debtor_dialog.child_window(title='ZUS alimenty').click()
+
+    debtor_dialog.child_window(title="Utwórz subskrypcję", class_name="Button").click()
+    #https://pywinauto.readthedocs.io/en/latest/code/pywinauto.keyboard.html
+    debtor_dialog.type_keys('{ENTER}')
+    debtor_dialog.type_keys('{ESC}')
+    my_app.type_keys('{F7}')
+
+
+

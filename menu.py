@@ -114,6 +114,7 @@ def menu_glowne(self, menu_button, submenu_1=None, submenu_2=None):
             self.app[kkvat].type_keys('{ENTER}')
 
     if menu_button == 'Biurowość':
+        print("biurowosc")
         for i in range(3):
             self.app[kkvat].type_keys('{RIGHT}')
         self.app[kkvat].type_keys('{ENTER}')
@@ -159,8 +160,17 @@ def menu_glowne(self, menu_button, submenu_1=None, submenu_2=None):
 
         if submenu_1 == 'ZUS-EKS - zapytanie o dłużnika':
             for i in range(9):
-                self.app[kkvat].type_keys('DOWN')
-            self.app[kkvat].type_keys('ENTER')
+                self.app[kkvat].type_keys('{DOWN}')
+            if submenu_2 == 'ZUS-PUE - wysyłka':
+                self.app[kkvat].type_keys('{RIGHT}')
+                self.app[kkvat].type_keys('{DOWN}')
+                self.app[kkvat].type_keys('{DOWN}')
+            self.app[kkvat].type_keys('{ENTER}')
+
+        if submenu_1 == 'ZUS-PUE - wysyłka':
+            for i in range(9):
+                self.app[kkvat].type_keys('{DOWN}')
+            self.app[kkvat].type_keys('{ENTER}')
 
         if submenu_1 == 'Ognivo2':
             for i in range(10):
