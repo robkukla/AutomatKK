@@ -41,7 +41,7 @@ def skorowidz_osoby_filtrowanie(self):
     numery_spraw_filtr(self, 'Numery spraw:Edit', numer_kolumny=8)
 
     time.sleep(3)
-    self.app[kkvat].TypeKeys('{ESC}')
+    self.app[kkvat].type_keys('{ESC}')
 
     time.sleep(3)
-    self.app[kkvat].TypeKeys('{ESC}')
+    self.app[kkvat].type_keys('{ESC}')

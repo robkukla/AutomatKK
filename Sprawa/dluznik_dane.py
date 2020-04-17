@@ -119,7 +119,7 @@ def dluznicy_dane(self):
 
     logging.info('DŁUŻNICY - ASERCJA - Zakładka "Dane podstawowe"')
     self.app[kkvat].ListView2.Items()[0].ClickInput()
-    self.app[kkvat].TypeKeys('{ENTER}')
+    self.app[kkvat].type_keys('{ENTER}')
 
     dialog_asercja_danych(self, dane1_edit, dane1_asercja, 'DŁUŻNICY - DANE PODSTAWOWE')
 

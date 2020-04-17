@@ -82,11 +82,11 @@ def generowanie_kopert_w_sprawie(self):
     sleep(1.5)
     self.app[kkvat].TreeView.GetItem([u'Tytuły Wykonawcze']).Click()
     logging.info('TYTUŁY WYKONAWCZE - Akcja - Dodanie nowego tytułu wykonawczego')
-    self.app[kkvat].TypeKeys('{ENTER}')
+    self.app[kkvat].type_keys('{ENTER}')
 
-    self.app[kkvat].TypeKeys('{INSERT}')
+    self.app[kkvat].type_keys('{INSERT}')
     self.app.Dialog.Combobox.Select(u'Postanowienie')
-    #self.app.Dialog.Edit2.TypeKeys('Kp1')
+    #self.app.Dialog.Edit2.type_keys('Kp1')
     self.app.Dialog.Zapisz.Click()
 
     logging.info('TYTUŁY WYKONAWCZE - ASERCJA')
@@ -105,9 +105,9 @@ def generowanie_kopert_w_sprawie(self):
     # *** 2 Zakładka "Dane konta bankowego" ***
     zmiana_zakładki(self, 1, 'WIERZYCIELE - DANE KONTA BANKOWEGO')
 
-    self.app.Dialog.TypeKeys('{DOWN}')
-    self.app.Dialog.TypeKeys('{INSERT}')
-    self.app.Dialog.Edit.TypeKeys("10902688")  # Nazwa1
+    self.app.Dialog.type_keys('{DOWN}')
+    self.app.Dialog.type_keys('{INSERT}')
+    self.app.Dialog.Edit.type_keys("10902688")  # Nazwa1
     self.app.Dialog.Button1.Click()
     self.app.Dialog.Button1.Click()
 
@@ -149,20 +149,20 @@ def generowanie_kopert_w_sprawie(self):
     logging.info('ROSZCZENIE - wprowadzenie nowego roszczenia')
     self.app.Dialog.Wait('ready')
     logging.info('ROSZCZENIE - Edit - Kwota')
-    self.app.Dialog.Edit1.TypeKeys('100000')
+    self.app.Dialog.Edit1.type_keys('100000')
     logging.info('ROSZCZENIE - Button - Zapisz')
     self.app.Dialog.Zapisz.Click()
 
     ###Wierzyciel
     self.app[kkvat].TreeView.GetItem([u'Czynności']).ClickInput()
-    self.app[kkvat].TypeKeys('{ENTER}')
-    self.app[kkvat].TypeKeys('{TAB}')
-    self.app[kkvat].TypeKeys('{ENTER}')
+    self.app[kkvat].type_keys('{ENTER}')
+    self.app[kkvat].type_keys('{TAB}')
+    self.app[kkvat].type_keys('{ENTER}')
     self.app.Dialog.OK.Click()
 
     self.app.Dialog.Button4.Click()
     self.app.Dialog.TreeView.DoubleClick()
-    self.app.Dialog.TypeKeys('{DOWN 3}')
+    self.app.Dialog.type_keys('{DOWN 3}')
     self.app.Dialog.Button4.Click()
     self.app.Dialog.Button4.Click()
 

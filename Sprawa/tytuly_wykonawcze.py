@@ -20,9 +20,9 @@ def tytuly_wykonawcze(self):
     sleep(1.5)
     self.app[kkvat].TreeView.GetItem([u'Tytuły Wykonawcze']).Click()
     logging.info('TYTUŁY WYKONAWCZE - Akcja - Dodanie nowego tytułu wykonawczego')
-    self.app[kkvat].TypeKeys('{ENTER}')
+    self.app[kkvat].type_keys('{ENTER}')
 
-    self.app[kkvat].TypeKeys('{INSERT}')
+    self.app[kkvat].type_keys('{INSERT}')
     for item in range(self.app.Dialog.Combobox.ItemCount() - 1):
         self.app.Dialog.ComboBox1.Select(item + 1)
         lista_tytulow.append(self.app.Dialog.ComboBox1.SelectedText())
@@ -30,7 +30,7 @@ def tytuly_wykonawcze(self):
                      + self.app.Dialog.ComboBox1.SelectedText())
         self.app.Dialog.Zapisz.Click()
         pozycje += 1
-        self.app[kkvat].TypeKeys('{INSERT}')
+        self.app[kkvat].type_keys('{INSERT}')
 
     self.app.Dialog.Anuluj.Click()
 

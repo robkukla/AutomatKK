@@ -13,7 +13,7 @@ def edit_filtr(self, edit, numer_kolumny):
 
     for key, value in dane.items():
         try:
-            self.app[kkvat][edit].TypeKeys(value)
+            self.app[kkvat][edit].type_keys(value)
             self.app[kkvat].Filtruj.ClickInput()
             if str(self.app[kkvat].ListView.texts()[1]) != ' ( brak ) ':
                 if numer_kolumny is not False:
@@ -22,7 +22,7 @@ def edit_filtr(self, edit, numer_kolumny):
                     assert value.lower() in self.app[kkvat].ListView.texts()[numer_kolumny].lower()
                     self.app[kkvat].ListView.header.click_input(coords=rect.mid_point())
                     assert value.lower() in self.app[kkvat].ListView.texts()[numer_kolumny].lower()
-            self.app[kkvat][edit].TypeKeys('^a{BACKSPACE}')
+            self.app[kkvat][edit].type_keys('^a{BACKSPACE}')
         except OSError:
             pass
 
@@ -37,7 +37,7 @@ def edit_filtrx(self, edit):
 
     for key, value in dane.items():
         try:
-            self.app[kkvat][edit].TypeKeys(value)
+            self.app[kkvat][edit].type_keys(value)
             print('aaa')
             self.app[kkvat].Filtruj.ClickInput()
             print('sas')
@@ -53,7 +53,7 @@ def edit_filtrx(self, edit):
                         numer_kolumny = ilosc_kolumn
                     numer_kolumny += 1
                     print(numer_kolumny)
-            self.app[kkvat][edit].TypeKeys('{BACKSPACE}' * len(value))
+            self.app[kkvat][edit].type_keys('{BACKSPACE}' * len(value))
         except OSError:
             pass
 """
@@ -63,7 +63,7 @@ def edit_filtrx(self, edit):
                     assert value.lower() in self.app[kkvat].ListView.texts()[numer_kolumny].lower()
                     self.app[kkvat].ListView.header.click_input(coords=rect.mid_point())
                     assert value.lower() in self.app[kkvat].ListView.texts()[numer_kolumny].lower()
-            self.app[kkvat][edit].TypeKeys('^a{BACKSPACE}')
+            self.app[kkvat][edit].type_keys('^a{BACKSPACE}')
         
 """
 
@@ -80,7 +80,7 @@ def numery_spraw_filtr(self, edit, numer_kolumny, combobox=u'Typ:combobox', end=
         while typ_sprawy_count < self.app[kkvat]['Typ:Combobox'].ItemCount() - 1:
             for key, value in dane.items():
                 self.app[kkvat][combobox].Select(typ_sprawy_count)
-                self.app[kkvat][edit].TypeKeys(value)
+                self.app[kkvat][edit].type_keys(value)
                 self.app[kkvat].Filtruj.ClickInput()
 
                 if str(self.app[kkvat].ListView.texts()[1]) != ' ( brak ) ':
@@ -94,7 +94,7 @@ def numery_spraw_filtr(self, edit, numer_kolumny, combobox=u'Typ:combobox', end=
                     assert self.app[kkvat]['Typ:Combobox'].SelectedText() in \
                         list(self.app[kkvat].ListView.texts()[numer_kolumny])
 
-                self.app[kkvat][edit].TypeKeys('{BACKSPACE}' * len(value))
+                self.app[kkvat][edit].type_keys('{BACKSPACE}' * len(value))
 
             typ_sprawy_count += 1
 
@@ -138,8 +138,8 @@ def data_filtr(self, count):
         self.app[kkvat][datatimepicker1].set_time(2019, 3, 2, 1, 14, 20, 1, 5)
         self.app[kkvat].Filtruj.ClickInput()
         self.app[kkvat][datatimepicker1].Click()
-        self.app[kkvat].TypeKeys('{SPACE}')
+        self.app[kkvat].type_keys('{SPACE}')
         self.app[kkvat][datatimepicker2].set_time(1987, 3, 2, 1, 14, 20, 1, 5)
         self.app[kkvat].Filtruj.ClickInput()
         self.app[kkvat][datatimepicker2].Click()
-        self.app[kkvat].TypeKeys('{SPACE}')
+        self.app[kkvat].type_keys('{SPACE}')

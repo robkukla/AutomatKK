@@ -1,3 +1,4 @@
 /.idea
 /venv
 /logi.log
+__pycache__

@@ -8,7 +8,7 @@ def stan_sprawy(self):
     logging.info('')
     kkvat = 'Kancelaria Komornika - VAT - [Kowalski Jan  KONTRA  Białek Michał]'
     self.app[kkvat].TreeView.GetItem([u'Stan sprawy']).ClickInput()
-    self.app[kkvat].TypeKeys('{ENTER}')
+    self.app[kkvat].type_keys('{ENTER}')
     ss_do_zaplaty = float(self.app[kkvat].Edit4.Texts()[0].replace(',', '.').replace(' ', ''))
     ss_opl_stos_8_naleznosc = float(self.app[kkvat].Edit5.Texts()[0].replace(',', '.'))
     ss_opl_stos_8_do_zaplaty = float(self.app[kkvat].Edit6.Texts()[0].replace(',', '.'))

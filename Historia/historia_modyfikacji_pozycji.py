@@ -26,4 +26,4 @@ def historia_modyfikacji_pozycji_filtrowanie(self):
     data_filtr(self, count=2)
 
     time.sleep(3)
-    self.app[kkvat].TypeKeys('{ESC}')
+    self.app[kkvat].type_keys('{ESC}')

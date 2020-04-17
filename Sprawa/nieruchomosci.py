@@ -23,7 +23,7 @@ def nieruchomosci(self):
     assert 'Nieruchomości' in self.app[kkvat].Static1.Texts()[0], 'Nieruchomości - nazwa okna.'
 
     self.app[kkvat].ListView3.Items()[0].ClickInput()
-    self.app[kkvat].TypeKeys('{ENTER}')
+    self.app[kkvat].type_keys('{ENTER}')
 
     dialog_asercja_danych(self, dane1_edit, dane1_asercja, 'NIERUCHOMOŚCI')
     self.app.Dialog.Zapisz.Click()

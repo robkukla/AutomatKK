@@ -15,11 +15,11 @@ def roszczenie(self):
     logging.info('ROSZCZENIE - wprowadzenie nowego roszczenia')
     self.app.Dialog.Wait('ready')
     logging.info('ROSZCZENIE - Edit - Kwota')
-    self.app.Dialog.Edit1.TypeKeys(dane1['Kwota'])
+    self.app.Dialog.Edit1.type_keys(dane1['Kwota'])
     logging.info('ROSZCZENIE - Edit - Mnożnik')
-    self.app.Dialog.Edit4.TypeKeys(dane1['Mnożnik'])
+    self.app.Dialog.Edit4.type_keys(dane1['Mnożnik'])
     logging.info('ROSZCZENIE - Edit - Kolejn')
-    self.app.Dialog.Edit5.TypeKeys(dane1['Kolejn'])
+    self.app.Dialog.Edit5.type_keys(dane1['Kolejn'])
     logging.info('ROSZCZENIE - Combobox - Rodzaj')
     self.app.Dialog.ComboBox2.Select(dane1['Rodzaj'])
     logging.info('ROSZCZENIE - Combobox - oprocentowanie')
@@ -33,11 +33,11 @@ def roszczenie(self):
     dane2 = {'Kwota': '350,00', 'Mnożnik': '0,03', 'Kolejn': '23', 'Rodzaj': 'T - Kwota z odsetkami',
              'Oprocentowanie': 'I - Indywidualne'}
     logging.info('ROSZCZENIE - Edit - Kwota')
-    self.app.Dialog.Edit1.TypeKeys(dane2['Kwota'])
+    self.app.Dialog.Edit1.type_keys(dane2['Kwota'])
     logging.info('ROSZCZENIE - Edit - Mnożnik')
-    self.app.Dialog.Edit4.TypeKeys(dane2['Mnożnik'])
+    self.app.Dialog.Edit4.type_keys(dane2['Mnożnik'])
     logging.info('ROSZCZENIE - Edit - Kolejn')
-    self.app.Dialog.Edit5.TypeKeys(dane2['Kolejn'])
+    self.app.Dialog.Edit5.type_keys(dane2['Kolejn'])
     logging.info('ROSZCZENIE - Combobox - Rodzaj')
     self.app.Dialog.ComboBox2.Select(dane2['Rodzaj'])
     logging.info('ROSZCZENIE - Combobox - oprocentowanie')
@@ -56,7 +56,7 @@ def roszczenie(self):
     assert 'Roszczenie' in self.app[kkvat].Static1.Texts()[0], 'Roszczenie - nazwa okna.'
 
     self.app[kkvat].ListView2.Items()[0].ClickInput()
-    self.app[kkvat].TypeKeys('{ENTER}')
+    self.app[kkvat].type_keys('{ENTER}')
 
     assert self.app.Dialog[u'Kwota::Edit'].Texts()[0] == dane1['Kwota'], 'Niepoprawny Edit 1'
     assert self.app.Dialog[u'Rodzaj:Combobox'].Texts()[0] == dane1['Rodzaj'], 'Niepoprawny Combobox 1'
@@ -66,8 +66,8 @@ def roszczenie(self):
 
     self.app.Dialog.Zapisz.Click()
 
-    self.app[kkvat].TypeKeys('{DOWN}')
-    self.app[kkvat].TypeKeys('{ENTER}')
+    self.app[kkvat].type_keys('{DOWN}')
+    self.app[kkvat].type_keys('{ENTER}')
 
     assert self.app.Dialog[u'Kwota::Edit'].Texts()[0] == dane2['Kwota'], 'Niepoprawny Edit 1'
     assert self.app.Dialog[u'Rodzaj:Combobox'].Texts()[0] == dane2['Rodzaj'], 'Niepoprawny Combobox 1'

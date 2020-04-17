@@ -99,10 +99,10 @@ def wierzyciel_dane(self):
     zmiana_zakładki(self, 1, 'WIERZYCIELE - DANE KONTA BANKOWEGO')
 
     logging.info('WIERZYCIELE - DANE KONTA BANKOWEGO - Akcja - Dodanie nowego nr. konta bankowego')
-    self.app.Dialog.TypeKeys('{DOWN}')
-    self.app.Dialog.TypeKeys('{INSERT}')
+    self.app.Dialog.type_keys('{DOWN}')
+    self.app.Dialog.type_keys('{INSERT}')
     logging.info('WIERZYCIELE - DANE KONTA BANKOWEGO - Edit - Rachunek')
-    self.app.Dialog.Edit.TypeKeys("10902688")  # Nazwa1
+    self.app.Dialog.Edit.type_keys("10902688")  # Nazwa1
     logging.info('WIERZYCIELE - DANE KONTA BANKOWEGO - Button - 1 (Automatyczne wypełnianie danych)')
     self.app.Dialog.Button1.Click()
     self.app.Dialog.Button1.Click()
@@ -136,7 +136,7 @@ def wierzyciel_dane(self):
 
     # *** Wejście do utworzonego wierzyciela ***
     self.app[kkvat].ListView2.Items()[0].ClickInput()
-    self.app[kkvat].TypeKeys('{ENTER}')
+    self.app[kkvat].type_keys('{ENTER}')
 
     logging.info('WIERZYCIELE - ASERCJA - Zakładka "Dane podstawowe"')
     dialog_asercja_danych(self, dane1_edit, dane1_asercja, 'WIERZYCIELE - ASERCJA - DANE PODSTAWOWE')
